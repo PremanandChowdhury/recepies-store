@@ -1,8 +1,21 @@
 body {
   font-family: "Open Sans", sans-serif;
-  /* font-family: "Courgette", cursive; */
 }
 
-/* .text-slanted {
+.text-slanted {
   font-family: "Courgette", cursive;
-} */
+}
+
+.text-orange {
+  color: #f15025;
+}
+
+.letter-spacing {
+  letter-spacing: 0.5rem;
+}
+
+.header-hero {
+  min-height: calc(100vh - 56px);
+  background: linear-gradient(rgba(241, 81, 37, 0.3), rgba(241, 81, 37, 0.3)),
+    url("../images/homeBcg.jpeg") center/cover no-repeat;
+}

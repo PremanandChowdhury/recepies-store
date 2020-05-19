@@ -1,8 +1,8 @@
 
-# Ultimate recepie landing page
+# Ultimate recipe landing page
 
 ## Features :
-> Tasty and ultimate recepies for you.
+> Tasty and ultimate recipes for you.
 > Easy to navigate and easy to prepare.
 
 

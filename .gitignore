@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+# env file is added to prevent uploading the privacy Key.
+# .env.development
+
 # testing
 /coverage
 

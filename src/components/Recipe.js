@@ -41,7 +41,7 @@ export default class Recipe extends Component {
               details
             </Link>
 
-            {/*  */}
+            {/* This link will show the recipe in the source link */}
             <a
               href={source_url}
               target="_blank"

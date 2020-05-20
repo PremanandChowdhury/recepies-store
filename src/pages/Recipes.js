@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import RecipeList from "../components/RecipeList";
 import Search from "../components/Search";
-import { recipeData } from "../data/tempDetails";
+import { recipeData } from "../data/tempList";
 
 export default class Recipes extends Component {
   constructor(props) {

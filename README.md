@@ -1,9 +1,7 @@
 
-# Ultimate recipe landing page
+# Recipe App
+This uses EDAMAM for the Recipe API
 
 ## Features :
-> Tasty and ultimate recipes for you.
-> Easy to navigate and easy to prepare.
-
-
-
+1. Search for any recipe you want
+2. User friendly UI

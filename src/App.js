@@ -1,6 +1,17 @@
+import Header from './components/Header'
+import styled from 'styled-components'
+import './App.css'
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
 const App = () => {
   return (
-   <h1>Refactoring the Recipe App</h1>
+    <Container>
+      <Header />
+    </Container>
   )
 }
 

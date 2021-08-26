@@ -39,6 +39,7 @@ const SearchInput = styled.input`
   margin-left: 15px;
   font-size: 20px;
   font-weight: bold;
+  width: 100%;
 `
 
 const HeaderComponent = () => {

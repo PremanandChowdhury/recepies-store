@@ -1,4 +1,5 @@
 import Header from './components/Header'
+import RecipeList from './components/RecipeList'
 import styled from 'styled-components'
 import './App.css'
 
@@ -11,6 +12,7 @@ const App = () => {
   return (
     <Container>
       <Header />
+      <RecipeList />
     </Container>
   )
 }

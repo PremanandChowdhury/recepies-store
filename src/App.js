@@ -1,6 +1,10 @@
 import { useState } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
+import Dialog from '@material-ui/core/Dialog'
+import DialogTitle from '@material-ui/core/DialogTitle'
+import DialogContent from '@material-ui/core/DialogContent'
+import DialogActions from '@material-ui/core/DialogActions'
 import './App.css'
 
 import {
@@ -25,18 +29,62 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
 `
-
+const Placeholder = styled.img`
+  text-align: center;
+  height: 120px;
+  opacity: 0.5;
+  margin: 200px 0;
+`
 const RecipeComponent = (props) => {
-  console.log(props)
+  const [show, setShow] = useState(false)
   const { recipeObj } = props
 
   return (
-    <RecipeContainer>
-      <ItemImage src={recipeObj.image} alt='Paneer' />
-      <RecipeName>{recipeObj.label}</RecipeName>
-      <IngredientsLabel>Ingredients</IngredientsLabel>
-      <SeeMoreRecipeLabel>See Complete Recipe</SeeMoreRecipeLabel>
-    </RecipeContainer>
+    <>
+      <Dialog open={show}>
+        <DialogTitle id='responsive-dialog-title'>Ingredients</DialogTitle>
+        <DialogContent>
+          <table>
+            <thead>
+              <th>Ingredients</th>
+              <th>Weight</th>
+            </thead>
+            <tbody>
+              {recipeObj.ingredients.map((ingredientObj, index) => (
+                <tr key={index}>
+                  <td>{ingredientObj.text}</td>
+                  <td>{ingredientObj.weight}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </DialogContent>
+        <DialogActions>
+          <IngredientsLabel
+            autoFocus
+            onClick={() => window.open(recipeObj.url)}
+            color='primary'>
+            See More
+          </IngredientsLabel>
+          <SeeMoreRecipeLabel
+            onClick={() => setShow(false)}
+            color='primary'
+            autoFocus>
+            Close
+          </SeeMoreRecipeLabel>
+        </DialogActions>
+      </Dialog>
+      <RecipeContainer>
+        <ItemImage src={recipeObj.image} alt='Recipe Thumbnail' />
+        <RecipeName>{recipeObj.label}</RecipeName>
+        <IngredientsLabel onClick={() => setShow(true)}>
+          Ingredients
+        </IngredientsLabel>
+        <SeeMoreRecipeLabel onClick={() => window.open(recipeObj.url)}>
+          See Complete Recipe
+        </SeeMoreRecipeLabel>
+      </RecipeContainer>
+    </>
   )
 }
 
@@ -76,10 +124,13 @@ const App = () => {
         </SearchComponent>
       </Header>
       <RecipeListContainer>
-        {recipeList.length &&
+        {recipeList.length ? (
           recipeList.map((recipeObj, index) => (
             <RecipeComponent recipeObj={recipeObj.recipe} key={index} />
-          ))}
+          ))
+        ) : (
+          <Placeholder src='/hamburger.svg' />
+        )}
       </RecipeListContainer>
     </Container>
   )

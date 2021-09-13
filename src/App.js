@@ -88,8 +88,8 @@ const RecipeComponent = (props) => {
   )
 }
 
-const API_ID = 'c1111d7b'
-const API_KEY = 'f11f79726b1c17c42bb03ded26af7ce5'
+const API_ID = process.env.REACT_APP_API_ID
+const API_KEY = process.env.REACT_APP_API_KEY
 
 const App = () => {
   const [timeOutId, setTimeOutId] = useState()
